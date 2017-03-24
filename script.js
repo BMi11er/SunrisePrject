@@ -4,7 +4,6 @@
 function getAddress() {
     var rawAddress = document.getElementById("addressInput").value;
     var refinedAddress = rawAddress.replace(/ /g, "+");
-    console.log(refinedAddress);
     var geocoder = new google.maps.Geocoder();
 
     geocoder.geocode({'address': refinedAddress}, function (results, status) {
@@ -47,18 +46,29 @@ function display(object) {
     console.log(UCTsunrise);
     console.log(UCTsunset);
     refineTime(UCTsunrise);
-//    refineTime(UCTsunset);
+    refineTime(UCTsunset);
 }
 
 function refineTime(string) {
     var timeArray = string.split(':');
-    console.log(timeArray[2]);
     for (var i = timeArray[2].length - 1; i>=0; i--) {
 
-        if (i === 'P') {
-            timeArray[0]+= 12;
+        if (timeArray[2][i] === 'P') {
+            timeArray[0]= +timeArray[0] + +12;
         }
 
     }
-    console.log(timeArray[0]);
+    timeArray[0] -= 7;
+    if (timeArray[0] < 0) {
+        timeArray[0] = 24 + timeArray[0];
+        var o = timeArray[2].lastIndexOf("P" || "A");
+        if (o === "P") {
+
+        } else if (o = "A") {
+
+        }
+        console.log(o);
+        timeArray[2]
+    }
+    console.log(timeArray);
 }
