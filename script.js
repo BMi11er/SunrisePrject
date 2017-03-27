@@ -51,24 +51,16 @@ function display(object) {
 
 function refineTime(string) {
     var timeArray = string.split(':');
-    for (var i = timeArray[2].length - 1; i>=0; i--) {
-
-        if (timeArray[2][i] === 'P') {
-            timeArray[0]= +timeArray[0] + +12;
-        }
-
+    var t = timeArray[2];
+    var i = t.substring(t.length-2, t.length);
+    timeArray.splice(2, 1, i);
+    timeArray[0] = +timeArray[0];
+    timeArray[1] = +timeArray[1];
+    if (t === "PM") {
+         timeArray[0] += 12;
+        timeArray[2] = "AM"
+        console.log(timeArray);
     }
-    timeArray[0] -= 7;
-    if (timeArray[0] < 0) {
-        timeArray[0] = 24 + timeArray[0];
-        var o = timeArray[2].lastIndexOf("P" || "A");
-        if (o === "P") {
-
-        } else if (o = "A") {
-
-        }
-        console.log(o);
-        timeArray[2]
-    }
+    //timeArray[0]
     console.log(timeArray);
 }
