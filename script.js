@@ -41,26 +41,42 @@ function getSunsetTime(latitude, longitude) {
 
 function display(object) {
     var UCTsunrise = object.results.sunrise;
-
     var UCTsunset = object.results.sunset;
     console.log(UCTsunrise);
     console.log(UCTsunset);
     refineTime(UCTsunrise);
+    document.getElementById("console").innerHTML = "The sun will rise at " + hour + ":" + minutes + " " + half + ",";
     refineTime(UCTsunset);
+    document.getElementById("console1").innerHTML = "and the sun will set at " + hour + ":" + minutes + " " + half + " (Pacific Standard Time)"
 }
 
 function refineTime(string) {
-    var timeArray = string.split(':');
-    var t = timeArray[2];
-    var i = t.substring(t.length-2, t.length);
+    timeArray = string.split(':');
+    console.log(timeArray);
+    var i = timeArray[2].substring(timeArray[2].length-2, timeArray[2].length);
     timeArray.splice(2, 1, i);
     timeArray[0] = +timeArray[0];
     timeArray[1] = +timeArray[1];
+    var t = timeArray[2];
     if (t === "PM") {
          timeArray[0] += 12;
-        timeArray[2] = "AM"
-        console.log(timeArray);
+         t = "AM"
     }
-    //timeArray[0]
-    console.log(timeArray);
+    timeArray[0] -= 7;
+    if (timeArray[0] === 0) {
+        timeArray[0] = 12;
+    } else if (timeArray[0] <= 0) {
+        timeArray[0] += 12;
+        t = "PM"
+    } else if (timeArray[0] >= 12) {
+        timeArray[0] -= 12;
+        t = "PM"
+    }
+    hour = timeArray[0];
+    if (timeArray[1] === 0) {
+        timeArray[1] = "00";
+    }
+    minutes = timeArray[1];
+    half = t;
+
 }

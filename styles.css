@@ -1,0 +1,14 @@
+
+body {
+    background-image: url("http://s3.freefoto.com/images/05/51/05_51_31_web.jpg");
+}
+
+.fixed {
+
+    position: fixed;
+
+    top: 40px;
+    right: 650px;
+    width: 200px;
+    border: 2px solid #2820ad;
+}
