@@ -1,14 +1,43 @@
 
-body {
-    background-image: url("http://s3.freefoto.com/images/05/51/05_51_31_web.jpg");
+html {
+    background-image: url("https://onehdwallpaper.com/wp-content/uploads/2014/09/Sunset-at-Beach-Hd-Wallpaper.jpg");
+    background-size: cover;
 }
 
 .fixed {
 
     position: fixed;
+    background: transparent;
 
-    top: 40px;
-    right: 650px;
-    width: 200px;
-    border: 2px solid #2820ad;
+    top: 560px;
+    right: 1263px;
+    width: 55px;
+    color: black;
+    border: none;
+    font-size: 18px;
+}
+
+.fixed1 {
+
+}
+
+.fixed2 {
+
+}
+
+
+
+
+.input {
+
+    background: transparent;
+    border: none;
+    position: fixed;
+
+    top: 530px;
+    right: 1120px;
+    height: 25px;
+
+    font-size: 18px;
+    color: black;
 }
